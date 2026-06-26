@@ -390,7 +390,7 @@ function RankTab({ user, repoData }: { user: GHUser | null, repoData: ReposData 
               />
               <Tooltip 
                 contentStyle={{ background:"var(--card)", border:"1px solid var(--border)", borderRadius:"8px", fontSize:12, fontFamily:"var(--font-mono)" }}
-                formatter={(value: number) => [`${value}%`, 'Percentile']}
+                formatter={(value) => [`${value}%`, 'Percentile']}
               />
             </RadarChart>
           </ResponsiveContainer>
