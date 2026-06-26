@@ -350,8 +350,8 @@ function ComparePageContent() {
     setAiMarkdown("")
     setAiWinner(null)
     setAiLoading(false)
-    setLeft({profile:null,repos:null,activity:[],profileLoading:false,reposLoading:false,activityLoading:false,profileError:"",reposError:"",activityError:""})
-    setRight({profile:null,repos:null,activity:[],profileLoading:false,reposLoading:false,activityLoading:false,profileError:"",reposError:"",activityError:""})
+    setLeft({profile:null,repos:null,activity:[],profileLoading:false,reposLoading:false,activityLoading:false,profileError:"",reposError:"",activityError:"",contributions:null,contributionsLoading:false,contributionsError:""})
+    setRight({profile:null,repos:null,activity:[],profileLoading:false,reposLoading:false,activityLoading:false,profileError:"",reposError:"",activityError:"",contributions:null,contributionsLoading:false,contributionsError:""})
   }
 
 
