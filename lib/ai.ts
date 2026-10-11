@@ -227,7 +227,9 @@ IMPORTANT RULES:
   const res = await groq.chat.completions.create({
     model: MODEL,
     messages: [{ role: "user", content: prompt }],
-    max_tokens: 600,
+    max_completion_tokens: 1200,
+    reasoning_format: "hidden",
+    reasoning_effort: "low",
     temperature: 0.7,
   })
   return res.choices[0]?.message?.content?.trim() ?? ""

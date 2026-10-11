@@ -74,13 +74,13 @@ export async function POST(req: Request) {
 
     let markdown = await generateComparison(payloadA, payloadB)
     
-    // Parse [WINNER]: username
-    let winner = null
-    const winnerMatch = markdown.match(/\[WINNER\]:\s*(.+)/i)
+    // Parse the winner marker even if the model wraps it in Markdown.
+    let winner: string | null = null
+    const winnerMatch = markdown.match(/(?:\*{0,2})\[?WINNER\]?(?:\*{0,2})\s*:\s*@?([A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?)/i)
     if (winnerMatch) {
-      winner = winnerMatch[1].trim()
+      winner = winnerMatch[1]!.trim()
       // Remove the winner line from the markdown
-      markdown = markdown.replace(/\[WINNER\]:\s*.+\n*/i, "").trim()
+      markdown = markdown.replace(/^\s*(?:\*{0,2})\[?WINNER\]?(?:\*{0,2})\s*:\s*.+(?:\r?\n|$)/im, "").trim()
     }
 
     return NextResponse.json({ markdown, winner })
