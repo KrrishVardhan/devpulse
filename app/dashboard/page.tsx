@@ -439,7 +439,7 @@ function AIPanel({ username, user, repoData }: { username: string, user: GHUser 
       <CardHeader className="pb-2 flex-row items-start justify-between gap-4">
         <div>
           <CardTitle className="text-xs font-mono text-muted-foreground uppercase tracking-widest">AI Insights</CardTitle>
-          <p className="font-mono text-[10px] text-muted-foreground/50 mt-0.5">llama-3.3-70b · Groq</p>
+          <p className="font-mono text-[10px] text-muted-foreground/50 mt-0.5">gpt-oss-120b · Groq</p>
         </div>
         <Button variant="ghost" size="icon-sm" onClick={()=>gen(tab,true)} disabled={data[tab]?.loading || tab === "rank"} title="Regenerate">
           <RefreshCw className={`size-3 ${data[tab]?.loading?"animate-spin":""}`}/>

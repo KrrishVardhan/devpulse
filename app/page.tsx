@@ -13,7 +13,7 @@ export default function Page() {
         Your GitHub profile,<br />deeply analyzed.
       </h1>
       <p className="font-mono text-xs text-muted-foreground max-w-xs mb-8 leading-relaxed">
-        Real stats · Language breakdown · Activity feed<br />AI-powered insights via Llama 3.3
+        Real stats · Language breakdown · Activity feed<br />AI-powered insights via GPT-OSS
       </p>
       <div className="flex gap-3">
         <Link href="/signin" className={buttonVariants({ variant: "default" })}>

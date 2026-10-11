@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getSessionUser } from "@/lib/session"
-import { generateSummary, generateRoast, generateAdvice } from "@/lib/ai"
+import { generateSummary, generateRoast, generateAdvice, MODEL } from "@/lib/ai"
 import { prisma } from "@/lib/prisma"
 import { github } from "@/lib/github"
 
@@ -65,7 +65,7 @@ export async function POST(req: NextRequest) {
     // Return cached (1h) unless fresh requested
     if (!fresh && user.aiSummaries.length > 0) {
       const cached = user.aiSummaries[0]!
-      if (Date.now() - cached.createdAt.getTime() < 60 * 60 * 1000) {
+      if (cached.model === MODEL && Date.now() - cached.createdAt.getTime() < 60 * 60 * 1000) {
         return NextResponse.json({ content: cached.content, cached: true, model: cached.model })
       }
     }
@@ -92,7 +92,6 @@ export async function POST(req: NextRequest) {
 
     const totalStars = ghRepos.filter((r) => !r.fork).reduce((s, r) => s + r.stargazers_count, 0)
 
-    const model = "llama-3.3-70b-versatile"
     let content = ""
 
     if (type === "summary") {
@@ -130,9 +129,9 @@ export async function POST(req: NextRequest) {
       })
     }
 
-    await prisma.aISummary.create({ data: { userId: user.id, type, model, content } })
+    await prisma.aISummary.create({ data: { userId: user.id, type, model: MODEL, content } })
 
-    return NextResponse.json({ content, cached: false, model })
+    return NextResponse.json({ content, cached: false, model: MODEL })
   } catch (err) {
     const message = err instanceof Error ? err.message : "Error"
     return NextResponse.json({ error: message }, { status: 500 })

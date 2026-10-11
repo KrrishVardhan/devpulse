@@ -2,7 +2,7 @@
 
 **Your GitHub profile, deeply analyzed.**
 
-Enter any GitHub username and get an interactive dashboard with real stats, language breakdown, activity feed, contribution heatmap, and AI-powered insights via Llama 3.3. No OAuth, no account — just a username.
+Enter any GitHub username and get an interactive dashboard with real stats, language breakdown, activity feed, contribution heatmap, and AI-powered insights via GPT-OSS. No OAuth, no account — just a username.
 
 ## Features
 
@@ -12,7 +12,7 @@ Enter any GitHub username and get an interactive dashboard with real stats, lang
 - **Top Repositories** — Sorted by stars with descriptions, language dots, star/fork counts
 - **Recent Activity Feed** — Push, PR, Issue, Fork, Watch, Create events with human-readable descriptions
 - **Contribution Heatmap** — GitHub-style calendar heatmap from public contribution data
-- **AI Insights** (Llama 3.3 via Groq):
+- **AI Insights** (GPT-OSS via Groq):
   - **Profile Summary** — Analysis of work style, strengths, and patterns
   - **Career Advice** — Actionable tooling and skill recommendations with priority table
   - **Roast** — Humorous British-style critique with a blunt rephrasing
@@ -27,7 +27,7 @@ Enter any GitHub username and get an interactive dashboard with real stats, lang
 | **Styling** | Tailwind CSS v4, shadcn/ui v4 |
 | **Charts** | Recharts |
 | **Database** | PostgreSQL via Prisma ORM |
-| **AI** | Groq SDK (llama-3.3-70b-versatile) |
+| **AI** | Groq SDK (openai/gpt-oss-120b) |
 | **Icons** | lucide-react |
 | **Markdown** | react-markdown + remark-gfm |
 
