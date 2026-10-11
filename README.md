@@ -54,7 +54,7 @@ GITHUB_TOKEN=ghp_...           # optional, for higher API rate limits
 
 ```bash
 pnpm install
-pnpm prisma migrate deploy
+pnpm db:migrate
 pnpm dev
 ```
 
@@ -65,7 +65,8 @@ Open [http://localhost:3000](http://localhost:3000) and enter a GitHub username.
 | Command | Description |
 |---|---|
 | `pnpm dev` | Start development server |
-| `pnpm build` | Migrate database + production build |
+| `pnpm build` | Create a production build |
+| `pnpm db:migrate` | Apply pending Prisma migrations |
 | `pnpm start` | Start production server |
 | `pnpm lint` | Run ESLint |
 | `pnpm format` | Format code with Prettier |
